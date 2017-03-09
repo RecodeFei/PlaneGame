@@ -25,16 +25,10 @@ public class GameBg {
         this.bmpBackGround2 = bmpBackGround;
         //首先让第一张背景底部正好填满整个屏幕
         bg1y = -Math.abs(bmpBackGround1.getHeight() - MySurfaceView.screenH);
-        Log.w("bmpBackGround1.getHeight()",""+bmpBackGround1.getHeight());
-        Log.w("MySurfaceView.screenH",""+MySurfaceView.screenH);
-        Log.w("bg1y",""+bg1y);
-        Log.w("bg1x",""+bg1x);
         //第二张背景图紧接在第一张背景的上方
         //＋１０１的原因：虽然两张背景图无缝隙连接但是因为图片资源头尾直接连接不和谐，为了让
         //视觉看不出是两张图连接而修正的位置
         bg2y = bg1y - bmpBackGround1.getHeight() + 111;
-        Log.w("bg2y",""+bg2y);
-        Log.w("bg2x",""+bg2x);
     }
     //游戏背景的绘图函数
     public void draw(Canvas canvas, Paint paint){

@@ -56,6 +56,8 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
     //初始化函数
     //声明一个滚动游戏背景对象
     private GameBg backGround;
+    //声明主角对象
+    private  Player player;
 
 
     //初始化函数
@@ -93,6 +95,8 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
         gameMenu = new GameMenu(bmpMenu,bmpButtion,bmpButtionPress);
         //背景图实例
         backGround = new GameBg(bmpBackGround);
+        //实例化主角
+        player = new Player(bmpPlayer,bmpPlayerHp);
     }
     //视图创建函数
     public void surfaceCreated(SurfaceHolder holder) {
@@ -123,6 +127,8 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
                         break;
                     case GAMEING:
                         backGround.draw(canvas,paint);
+                        //主角绘图函数
+                        player.draw(canvas,paint);
                         break;
                     case GAME_PAUSE:
                         break;
@@ -146,6 +152,7 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
             case GAME_MENU:
                 break;
             case GAMEING:
+                player.onKeyDown(keyCode,event);
                 break;
             case GAME_PAUSE:
                 break;
@@ -163,6 +170,7 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
             case GAME_MENU:
                 break;
             case GAMEING:
+                player.onKeyUp(keyCode,event);
                 break;
             case GAME_PAUSE:
                 break;
@@ -181,6 +189,7 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
                 gameMenu.onTouchEvent(event);
                 break;
             case GAMEING:
+                player.onTouchEvent(event);
                 break;
             case GAME_WIN:
                 break;
@@ -197,6 +206,8 @@ public class MySurfaceView extends SurfaceView implements Callback, Runnable{
                 break;
             case GAMEING:
                 backGround.logic();
+                //主角逻辑
+                player.logic();
                 break;
             case GAME_PAUSE:
                 break;

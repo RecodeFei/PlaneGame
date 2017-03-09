@@ -35,7 +35,7 @@ public class GameMenu {
     //菜单绘图函数
     public void draw(Canvas canvas, Paint paint) {
         //绘制菜单背景图
-        canvas.drawBitmap(bmpMenu, 0, 0, paint);
+        canvas.drawBitmap(bmpMenu, 30, 0, paint);
         //绘制未按下按钮图
         if (isPress) {//根据是否按下绘制不同状态的按钮图
             canvas.drawBitmap(bmpButtionPress, btnX, btnY, paint);
@@ -71,7 +71,6 @@ public class GameMenu {
                             isPress = false;
                             //改变当前游戏状态为开始游戏
                             MySurfaceView.gameState = MySurfaceView.GAMEING;
-                            Log.w("kk","xx");
                         }
                     }
                 }
